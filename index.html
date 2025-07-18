@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>الريدال ملكي | Al Ridal Malki</title>
-
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background-image: url('background1.jpg'); /* 🖼️ Background image updated */
+      background-image: url('background1.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -21,7 +20,6 @@
       min-height: 100vh;
     }
 
-    /* Top contact bar */
     #top-contact {
       width: 100%;
       background-color: rgba(0,0,0,0.7);
@@ -29,7 +27,6 @@
       padding: 8px 0;
       text-align: center;
       font-size: 1em;
-      font-family: Arial, sans-serif;
       position: fixed;
       top: 0;
       left: 0;
@@ -39,18 +36,16 @@
     #top-contact a {
       color: #3498db;
       text-decoration: none;
-      margin-left: 5px;
-      margin-right: 5px;
+      margin: 0 5px;
     }
 
     h1 {
       text-align: center;
-      margin: 80px 0 20px 0; /* margin top increased for fixed bar */
+      margin: 80px 0 20px 0;
       color: #170c0c;
       font-size: 3em;
     }
 
-    /* Search bar styles */
     #search-bar {
       margin-bottom: 30px;
     }
@@ -93,12 +88,7 @@
       width: 250px;
       text-align: center;
       padding: 20px;
-      transition: transform 0.3s ease;
       color: black;
-    }
-
-    .product-card:hover {
-      transform: translateY(-10px);
     }
 
     .product-card img {
@@ -111,13 +101,8 @@
     .product-card h3 {
       font-size: 1.5em;
       margin: 10px 0;
-      color: #111111; /* Extra dark color */
+      color: #111;
       font-weight: bold;
-    }
-
-    .product-card p {
-      color: #333;
-      margin-bottom: 15px;
     }
 
     .add-to-cart {
@@ -142,7 +127,6 @@
       width: 400px;
       text-align: left;
       color: white;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
 
     .cart-item {
@@ -167,33 +151,14 @@
       background-color: darkred;
     }
 
-    #checkout {
-      margin-top: 30px;
-      padding: 15px 30px;
-      background-color: #27ae60;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 1.2em;
-    }
-
-    #checkout:hover {
-      background-color: #2ecc71;
-    }
-
     footer {
       margin-top: auto;
       background-color: rgba(0,0,0,0.7);
       padding: 15px;
       width: 100%;
       text-align: center;
-      font-family: Arial, sans-serif;
       font-size: 1em;
       color: white;
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.4);
-      position: relative;
-      bottom: 0;
     }
 
     footer a {
@@ -202,7 +167,6 @@
       margin: 0 10px;
     }
 
-    /* Responsive for mobile */
     @media (max-width: 600px) {
       .product-container {
         flex-direction: column;
@@ -236,7 +200,6 @@
 </head>
 
 <body>
-  <!-- Top contact bar -->
   <div id="top-contact">
     📞 +971 55 513 6875 | 📧 
     <a href="mailto:alridalmalki@gmail.com">alridalmalki@gmail.com</a>
@@ -244,13 +207,11 @@
 
   <h1>الريدال ملكي</h1>
 
-  <!-- Search bar -->
   <div id="search-bar">
     <input type="text" id="search-input" placeholder="ابحث عن توب..." />
     <button id="search-btn">بحث</button>
   </div>
 
-  <!-- Product Cards with Arabic Names -->
   <div class="product-container" id="product-container">
     <div class="product-card" data-id="1">
       <img src="saudi.jpg" alt="توب سعودي" />
@@ -274,18 +235,21 @@
     </div>
   </div>
 
-  <!-- Cart Display -->
   <div id="cart-items">
     <h3>🛒 السلة</h3>
     <p>لا توجد منتجات في السلة بعد.</p>
   </div>
 
-  <button id="checkout">الدفع</button>
+  <!-- WhatsApp Order Button -->
+  <div style="margin-top: 20px;">
+    <button onclick="sendToWhatsApp()" style="padding: 15px 30px; font-size: 1.2em; background-color: green; color: white; border: none; border-radius: 10px; cursor: pointer;">
+      📦 اطلب عبر واتساب
+    </button>
+  </div>
 
-  <!-- Footer contact -->
   <footer>
     للتواصل معنا: 
-    <a href="https://wa.me/971555136875" target="_blank" rel="noopener">واتساب</a> |
+    <a href="https://wa.me/971555136875" target="_blank">واتساب</a> |
     <a href="mailto:alridalmalki@gmail.com">البريد الإلكتروني</a>
   </footer>
 
@@ -304,14 +268,6 @@
           const productId = event.target.closest('.product-card').getAttribute('data-id');
           addToCart(productId);
         });
-      });
-
-      document.getElementById('checkout').addEventListener('click', () => {
-        if (cart.length > 0) {
-          alert("تم الإنتقال إلى الدفع، عدد المنتجات: " + cart.length);
-        } else {
-          alert("سلة التسوق فارغة!");
-        }
       });
 
       document.getElementById('search-btn').addEventListener('click', () => {
@@ -367,13 +323,26 @@
 
       cards.forEach(card => {
         const name = card.querySelector('h3').textContent;
-        if (name.includes(query) || query === '') {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
+        card.style.display = name.includes(query) || query === '' ? '' : 'none';
       });
+    }
+
+    function sendToWhatsApp() {
+      if (cart.length === 0) {
+        alert("السلة فارغة! الرجاء إضافة منتجات.");
+        return;
+      }
+
+      let message = "طلب جديد من موقع الريدال ملكي:\n";
+      cart.forEach((item, index) => {
+        message += `${index + 1}. ${item.name} - AED ${item.price.toFixed(2)}\n`;
+      });
+
+      const encodedMessage = encodeURIComponent(message);
+      const phoneNumber = "971555136875";
+      window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
     }
   </script>
 </body>
 </html>
+
