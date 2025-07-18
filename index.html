@@ -172,16 +172,16 @@
         flex-direction: column;
         align-items: center;
       }
-      
+
       #cart-items {
         width: 90%;
       }
-      
+
       #search-input {
         width: 100%;
         max-width: 280px;
       }
-      
+
       #search-bar {
         display: flex;
         flex-direction: column;
@@ -189,7 +189,7 @@
         gap: 10px;
         margin-bottom: 20px;
       }
-      
+
       #search-btn {
         width: 100%;
         max-width: 280px;
@@ -206,6 +206,10 @@
   </div>
 
   <h1>الريدال ملكي</h1>
+
+  <div style="text-align: center; margin-top: -10px; font-size: 1em; color: #fff;">
+    خياط الرداء الملكي | Khaiyat Al Ridal Malki — <span style="font-style: italic;">Since 2010</span>
+  </div>
 
   <div id="search-bar">
     <input type="text" id="search-input" placeholder="ابحث عن توب..." />
@@ -235,12 +239,16 @@
     </div>
   </div>
 
+  <!-- 👇 Brand name above cart section -->
+  <div style="text-align: center; margin: 40px 0 10px 0;">
+    <h2 style="color: white; font-size: 1.2em;">خياط الرداء الملكي | Khaiyat Al Ridal Malki</h2>
+  </div>
+
   <div id="cart-items">
     <h3>🛒 السلة</h3>
     <p>لا توجد منتجات في السلة بعد.</p>
   </div>
 
-  <!-- WhatsApp Order Button -->
   <div style="margin-top: 20px;">
     <button onclick="sendToWhatsApp()" style="padding: 15px 30px; font-size: 1.2em; background-color: green; color: white; border: none; border-radius: 10px; cursor: pointer;">
       📦 اطلب عبر واتساب
@@ -248,6 +256,7 @@
   </div>
 
   <footer>
+    خياط الرداء الملكي | Khaiyat Al Ridal Malki — منذ 2010<br>
     للتواصل معنا: 
     <a href="https://wa.me/971555136875" target="_blank">واتساب</a> |
     <a href="mailto:alridalmalki@gmail.com">البريد الإلكتروني</a>
@@ -333,7 +342,7 @@
         return;
       }
 
-      let message = "طلب جديد من موقع الريدال ملكي:\n";
+      let message = "طلب جديد من موقع خياط الرداء الملكي:\n";
       cart.forEach((item, index) => {
         message += `${index + 1}. ${item.name} - AED ${item.price.toFixed(2)}\n`;
       });
