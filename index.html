@@ -88,6 +88,8 @@
       padding: 4px 10px;
       border-radius: 20px;
       font-size: 0.8em;
+      box-shadow: 0 0 10px 2px red;
+      text-shadow: 0 0 8px white;
     }
 
     .price {
@@ -243,7 +245,7 @@
     const cartList = document.getElementById("cart-list");
     const addButtons = document.querySelectorAll(".add-to-cart");
 
-    addButtons.forEach((btn, index) => {
+    addButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         const productCard = btn.closest(".product-card");
         const name = productCard.querySelector("h3").innerText;
