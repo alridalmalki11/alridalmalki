@@ -6,81 +6,51 @@
   <title>خياط الرداء الملكي | Khaiyat Al Ridal Malki</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-image: url('background1.jpg');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       color: white;
-      min-height: 100vh;
     }
 
     #top-contact {
-      width: 100%;
       background-color: rgba(0,0,0,0.7);
-      color: white;
-      padding: 8px 0;
       text-align: center;
-      font-size: 1em;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
+      padding: 10px;
+      font-size: 0.95em;
+    }
+
+    #top-contact img {
+      height: 16px;
+      vertical-align: middle;
+      margin: 0 5px;
     }
 
     #top-contact a {
       color: #25D366;
       text-decoration: none;
-      margin: 0 5px;
+      margin: 0 10px;
     }
 
     h1 {
       text-align: center;
-      margin: 80px 0 10px 0;
-      color: #170c0c;
-      font-size: 3em;
+      margin-top: 70px;
+      font-size: 2.5em;
+      color: black;
     }
 
     .sale-badge {
-      background-color: crimson;
+      background: linear-gradient(to right, #f12711, #f5af19);
       color: white;
-      padding: 10px 20px;
+      padding: 8px 16px;
       border-radius: 30px;
+      font-size: 1em;
+      font-weight: bold;
       margin: 10px auto;
       width: fit-content;
-      font-weight: bold;
-      font-size: 1em;
-    }
-
-    #search-bar {
-      margin-bottom: 30px;
-    }
-
-    #search-input {
-      padding: 10px;
-      width: 250px;
-      border-radius: 5px 0 0 5px;
-      border: none;
-      font-size: 1em;
-    }
-
-    #search-btn {
-      padding: 10px 20px;
-      border: none;
-      background-color: #3498db;
-      color: white;
-      font-size: 1em;
-      cursor: pointer;
-      border-radius: 0 5px 5px 0;
-    }
-
-    #search-btn:hover {
-      background-color: #2980b9;
+      text-align: center;
     }
 
     .product-container {
@@ -88,283 +58,227 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      margin: 0 30px 30px 30px;
-      max-width: 1000px;
+      padding: 20px;
     }
 
     .product-card {
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: #fff;
+      color: black;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      padding: 15px;
       width: 250px;
       text-align: center;
-      padding: 20px;
-      color: black;
+      position: relative;
     }
 
     .product-card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 10px;
     }
 
-    .product-card h3 {
-      font-size: 1.5em;
-      margin: 10px 0;
-      color: #111;
-      font-weight: bold;
+    .discount-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: red;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8em;
+    }
+
+    .price {
+      font-size: 1em;
+      margin: 5px 0;
+    }
+
+    .price del {
+      color: gray;
+      margin-left: 10px;
+    }
+
+    select {
+      padding: 5px;
+      margin: 5px 0;
     }
 
     .add-to-cart {
       background-color: #3498db;
       color: white;
       border: none;
-      padding: 12px 20px;
-      cursor: pointer;
+      padding: 10px;
+      margin-top: 5px;
       border-radius: 5px;
-      font-size: 1em;
-    }
-
-    .add-to-cart:hover {
-      background-color: #2980b9;
+      cursor: pointer;
     }
 
     #cart-items {
-      margin-top: 30px;
-      padding: 20px;
-      background-color: rgba(20, 20, 20, 0.95);
-      border-radius: 12px;
-      width: 400px;
-      text-align: left;
-      color: white;
+      margin: 20px auto;
+      padding: 15px;
+      width: 90%;
+      max-width: 500px;
+      background-color: rgba(0,0,0,0.7);
+      border-radius: 10px;
     }
 
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #444;
-      padding: 10px 0;
+    #cart-items h3 {
+      margin-top: 0;
+      text-align: center;
     }
 
     .remove-btn {
-      background-color: crimson;
+      background-color: red;
       color: white;
       border: none;
-      padding: 6px 12px;
+      padding: 5px 10px;
+      margin-left: 10px;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 0.9em;
-    }
-
-    .remove-btn:hover {
-      background-color: darkred;
     }
 
     footer {
-      margin-top: auto;
       background-color: rgba(0,0,0,0.7);
       padding: 15px;
-      width: 100%;
       text-align: center;
-      font-size: 1em;
-      color: white;
+      font-size: 0.95em;
+      margin-top: 30px;
     }
 
     footer a {
       color: #25D366;
       text-decoration: none;
-      margin: 0 10px;
-    }
-
-    @media (max-width: 600px) {
-      .product-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #cart-items {
-        width: 90%;
-      }
-
-      #search-input {
-        width: 100%;
-        max-width: 280px;
-      }
-
-      #search-bar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
-
-      #search-btn {
-        width: 100%;
-        max-width: 280px;
-        border-radius: 5px;
-      }
     }
   </style>
 </head>
-
 <body>
+
   <div id="top-contact">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="height: 16px; vertical-align: middle; margin-right: 5px;">
-    <a href="https://wa.me/971555136875" target="_blank">+971 55 513 6875</a> | 📧 
-    <a href="mailto:alridalmalki@gmail.com">alridalmalki@gmail.com</a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <a href="https://wa.me/971555136875" target="_blank">+971 55 513 6875</a> |
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail">
+    <a href="mailto:alridalmalki@gmail.com">alridalmalki@gmail.com</a> |
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    <a href="https://instagram.com/alridalmalki" target="_blank">@alridalmalki</a>
   </div>
 
   <h1>خياط الرداء الملكي</h1>
+  <div class="sale-badge">🔥 خصم 20% على جميع المقاسات!</div>
 
-  <div class="sale-badge">🔥 خصم 20% على جميع التوبات هذا الأسبوع!</div>
-
-  <div style="text-align: center; margin-top: -10px; font-size: 1em; color: #fff;">
-    خياط الرداء الملكي | Khaiyat Al Ridal Malki — <span style="font-style: italic;">Since 2010</span>
-  </div>
-
-  <div id="search-bar">
-    <input type="text" id="search-input" placeholder="ابحث عن توب..." />
-    <button id="search-btn">بحث</button>
-  </div>
-
-  <div class="product-container" id="product-container">
-    <!-- Products -->
-    <div class="product-card" data-id="1">
+  <div class="product-container">
+    <div class="product-card">
+      <div class="discount-tag">-20%</div>
       <img src="saudi.jpg" alt="توب سعودي" />
       <h3>توب سعودي</h3>
-      <p><del>AED 50.00</del> <strong>AED 45.00</strong></p>
+      <div class="price">
+        AED 45 <del>AED 55</del>
+      </div>
+      <select>
+        <option>اختر المقاس</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+        <option>XXL</option>
+      </select>
       <button class="add-to-cart">أضف إلى السلة</button>
     </div>
 
-    <div class="product-card" data-id="2">
+    <div class="product-card">
+      <div class="discount-tag">-20%</div>
       <img src="maghribi.jpg" alt="توب مغربي" />
       <h3>توب مغربي</h3>
-      <p><del>AED 60.00</del> <strong>AED 55.00</strong></p>
+      <div class="price">
+        AED 50 <del>AED 60</del>
+      </div>
+      <select>
+        <option>اختر المقاس</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+        <option>XXL</option>
+      </select>
       <button class="add-to-cart">أضف إلى السلة</button>
     </div>
 
-    <div class="product-card" data-id="3">
+    <div class="product-card">
+      <div class="discount-tag">-20%</div>
       <img src="emarati.jpg" alt="توب إماراتي" />
       <h3>توب إماراتي</h3>
-      <p><del>AED 65.00</del> <strong>AED 60.00</strong></p>
+      <div class="price">
+        AED 60 <del>AED 70</del>
+      </div>
+      <select>
+        <option>اختر المقاس</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+        <option>XXL</option>
+      </select>
       <button class="add-to-cart">أضف إلى السلة</button>
     </div>
-  </div>
-
-  <div style="text-align: center; margin: 40px 0 10px 0;">
-    <h2 style="color: white; font-size: 1.2em;">خياط الرداء الملكي | Khaiyat Al Ridal Malki</h2>
   </div>
 
   <div id="cart-items">
     <h3>🛒 السلة</h3>
-    <p>لا توجد منتجات في السلة بعد.</p>
+    <ul id="cart-list"></ul>
   </div>
 
-  <div style="margin-top: 20px;">
-    <button onclick="sendToWhatsApp()" style="padding: 15px 30px; font-size: 1.2em; background-color: green; color: white; border: none; border-radius: 10px; cursor: pointer;">
-      📦 اطلب عبر واتساب
+  <div style="text-align: center; margin-bottom: 30px;">
+    <button onclick="sendToWhatsApp()" style="padding: 15px 25px; background-color: green; color: white; font-size: 1.2em; border: none; border-radius: 10px; cursor: pointer;">
+      اطلب عبر واتساب 📦
     </button>
   </div>
 
   <footer>
     خياط الرداء الملكي | Khaiyat Al Ridal Malki — منذ 2010<br>
-    للتواصل معنا: 
-    <a href="https://wa.me/971555136875" target="_blank">واتساب</a> |
-    <a href="mailto:alridalmalki@gmail.com">البريد الإلكتروني</a>
+    للتواصل: <a href="https://wa.me/971555136875">واتساب</a> | <a href="mailto:alridalmalki@gmail.com">Gmail</a> | <a href="https://instagram.com/alridalmalki">Instagram</a>
   </footer>
 
   <script>
-    const products = [
-      { id: 1, name: "توب سعودي", price: 45.00 },
-      { id: 2, name: "توب مغربي", price: 55.00 },
-      { id: 3, name: "توب إماراتي", price: 60.00 },
-    ];
+    const cartList = document.getElementById("cart-list");
+    const addButtons = document.querySelectorAll(".add-to-cart");
 
-    let cart = [];
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', (event) => {
-          const productId = event.target.closest('.product-card').getAttribute('data-id');
-          addToCart(productId);
-        });
-      });
-
-      document.getElementById('search-btn').addEventListener('click', () => {
-        const query = document.getElementById('search-input').value.trim();
-        filterProducts(query);
-      });
-
-      document.getElementById('search-input').addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-          const query = e.target.value.trim();
-          filterProducts(query);
+    addButtons.forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        const productCard = btn.closest(".product-card");
+        const name = productCard.querySelector("h3").innerText;
+        const size = productCard.querySelector("select").value;
+        if (size === "اختر المقاس") {
+          alert("برجاء اختيار المقاس");
+          return;
         }
-      });
 
-      updateCartDisplay();
+        const item = document.createElement("li");
+        item.innerText = `${name} - مقاس ${size}`;
+        const removeBtn = document.createElement("button");
+        removeBtn.innerText = "إزالة";
+        removeBtn.className = "remove-btn";
+        removeBtn.onclick = () => item.remove();
+        item.appendChild(removeBtn);
+        cartList.appendChild(item);
+      });
     });
 
-    function addToCart(productId) {
-      const product = products.find(p => p.id == productId);
-      if (product) {
-        cart.push(product);
-        updateCartDisplay();
-      }
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCartDisplay();
-    }
-
-    function updateCartDisplay() {
-      const cartItemsDiv = document.getElementById('cart-items');
-      cartItemsDiv.innerHTML = '<h3>🛒 السلة</h3>';
-
-      if (cart.length === 0) {
-        cartItemsDiv.innerHTML += '<p>لا توجد منتجات في السلة بعد.</p>';
-      } else {
-        cart.forEach((item, index) => {
-          const itemDiv = document.createElement('div');
-          itemDiv.className = 'cart-item';
-          itemDiv.innerHTML = `
-            <span>${item.name} - AED ${item.price.toFixed(2)}</span>
-            <button class="remove-btn" onclick="removeFromCart(${index})">حذف</button>
-          `;
-          cartItemsDiv.appendChild(itemDiv);
-        });
-      }
-    }
-
-    function filterProducts(query) {
-      const container = document.getElementById('product-container');
-      const cards = container.querySelectorAll('.product-card');
-
-      cards.forEach(card => {
-        const name = card.querySelector('h3').textContent;
-        card.style.display = name.includes(query) || query === '' ? '' : 'none';
-      });
-    }
-
     function sendToWhatsApp() {
-      if (cart.length === 0) {
-        alert("السلة فارغة! الرجاء إضافة منتجات.");
+      const items = [];
+      document.querySelectorAll("#cart-list li").forEach(li => {
+        items.push(li.innerText.replace("إزالة", "").trim());
+      });
+
+      if (items.length === 0) {
+        alert("السلة فارغة!");
         return;
       }
 
-      let message = "طلب جديد من موقع خياط الرداء الملكي:\n";
-      cart.forEach((item, index) => {
-        message += `${index + 1}. ${item.name} - AED ${item.price.toFixed(2)}\n`;
-      });
-
-      const encodedMessage = encodeURIComponent(message);
-      const phoneNumber = "971555136875";
-      window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
+      const message = encodeURIComponent("السلام عليكم، أود طلب المنتجات التالية:\n\n" + items.join("\n"));
+      window.open(`https://wa.me/971555136875?text=${message}`, "_blank");
     }
   </script>
 </body>
 </html>
+
