@@ -2,12 +2,12 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>خياط الرداء الملكي | Khaiyat Al Ridal Malki</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url('background1.jpg');
+      background-image: url('background11.jpg');
       background-size: cover;
       background-position: center;
       margin: 0;
@@ -29,7 +29,7 @@
     }
 
     #top-contact a {
-      color: #25D366;
+      color: #fff;
       text-decoration: none;
       margin: 0 10px;
     }
@@ -39,6 +39,7 @@
       margin-top: 70px;
       font-size: 2.5em;
       color: black;
+      text-shadow: 0 0 10px white;
     }
 
     .sale-badge {
@@ -51,6 +52,8 @@
       margin: 10px auto;
       width: fit-content;
       text-align: center;
+      box-shadow: 0 0 15px #f5af19;
+      text-shadow: 0 0 5px black;
     }
 
     .product-container {
@@ -62,14 +65,19 @@
     }
 
     .product-card {
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.95);
       color: black;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       padding: 15px;
       width: 250px;
       text-align: center;
       position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
     }
 
     .product-card img {
@@ -115,6 +123,11 @@
       margin-top: 5px;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #2980b9;
     }
 
     #cart-items {
@@ -141,21 +154,120 @@
       cursor: pointer;
     }
 
-    footer {
-      background-color: rgba(0,0,0,0.7);
-      padding: 15px;
-      text-align: center;
-      font-size: 0.95em;
-      margin-top: 30px;
+    .sidebar-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: black;
+      color: white;
+      border: none;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 1001;
     }
 
-    footer a {
-      color: #25D366;
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
       text-decoration: none;
+      border-bottom: 1px solid #333;
+    }
+
+    .sidebar a:hover {
+      background-color: #333;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50px;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: 0 0 15px #25D366;
+    }
+
+    .coming-soon-label {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: orange;
+      color: black;
+      padding: 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      box-shadow: 0 0 10px orange;
+    }
+
+    .location-button {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .location-button a {
+      padding: 12px 25px;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .footer {
+      background-color: rgba(0, 0, 0, 0.85);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95em;
+      color: white;
+      margin-top: 40px;
+    }
+
+    .footer img {
+      height: 18px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer .brand {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 1.1em;
     }
   </style>
 </head>
 <body>
+
+  <button class="sidebar-btn" onclick="toggleSidebar()">☰</button>
+  <div class="sidebar" id="sidebar">
+    <a href="about.html">من نحن</a>
+    <a href="#products">المنتجات الحالية</a>
+    <a href="#coming-soon">قريباً: توب مغربي</a>
+    <a href="https://wa.me/971555136875" target="_blank">الدعم عبر واتساب</a>
+  </div>
 
   <div id="top-contact">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
@@ -163,63 +275,45 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail">
     <a href="mailto:alridalmalki@gmail.com">alridalmalki@gmail.com</a> |
     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-    <a href="https://instagram.com/alridalmalki" target="_blank">@alridalmalki</a>
+    <a href="https://instagram.com/alridalmalki" target="_blank">@alridalmalki</a> |
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Map_marker_icon_%E2%80%93_Nicolas_Mollet_%E2%80%93_Location_%E2%80%93_Tourism_%E2%80%93_White.png" alt="Location📍">
+    <a href="https://maps.app.goo.gl/PKUA2mTkMz8Jb9Ls7" target="_blank">موقعنا</a>
   </div>
 
   <h1>خياط الرداء الملكي</h1>
   <div class="sale-badge">🔥 خصم 20% على جميع المقاسات!</div>
 
-  <div class="product-container">
+  <div class="product-container" id="products">
     <div class="product-card">
       <div class="discount-tag">-20%</div>
       <img src="saudi.jpg" alt="توب سعودي" />
       <h3>توب سعودي</h3>
-      <div class="price">
-        AED 45 <del>AED 55</del>
-      </div>
+      <div class="price">AED 100 <del>AED 120</del></div>
       <select>
         <option>اختر المقاس</option>
-        <option>S</option>
-        <option>M</option>
-        <option>L</option>
-        <option>XL</option>
-        <option>XXL</option>
+        <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
       </select>
       <button class="add-to-cart">أضف إلى السلة</button>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" id="coming-soon">
       <div class="discount-tag">-20%</div>
       <img src="maghribi.jpg" alt="توب مغربي" />
       <h3>توب مغربي</h3>
-      <div class="price">
-        AED 50 <del>AED 60</del>
-      </div>
-      <select>
-        <option>اختر المقاس</option>
-        <option>S</option>
-        <option>M</option>
-        <option>L</option>
-        <option>XL</option>
-        <option>XXL</option>
-      </select>
-      <button class="add-to-cart">أضف إلى السلة</button>
+      <div class="price">AED 50 <del>AED 60</del></div>
+      <div style="color: red; font-weight: bold; margin-bottom: 10px;">قريباً - لا يمكن الطلب الآن</div>
+      <select disabled><option>اختر المقاس</option></select>
+      <button class="add-to-cart" disabled style="background-color: gray; cursor: not-allowed;">قريباً</button>
     </div>
 
     <div class="product-card">
       <div class="discount-tag">-20%</div>
       <img src="emarati.jpg" alt="توب إماراتي" />
       <h3>توب إماراتي</h3>
-      <div class="price">
-        AED 60 <del>AED 70</del>
-      </div>
+      <div class="price">AED 110 <del>AED 130</del></div>
       <select>
         <option>اختر المقاس</option>
-        <option>S</option>
-        <option>M</option>
-        <option>L</option>
-        <option>XL</option>
-        <option>XXL</option>
+        <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
       </select>
       <button class="add-to-cart">أضف إلى السلة</button>
     </div>
@@ -236,16 +330,37 @@
     </button>
   </div>
 
-  <footer>
-    خياط الرداء الملكي | Khaiyat Al Ridal Malki — منذ 2010<br>
-    للتواصل: <a href="https://wa.me/971555136875">واتساب</a> | <a href="mailto:alridalmalki@gmail.com">Gmail</a> | <a href="https://instagram.com/alridalmalki">Instagram</a>
-  </footer>
+  <div class="location-button">
+    <a href="https://maps.app.goo.gl/PKUA2mTkMz8Jb9Ls7" target="_blank">🗺️ موقعنا على الخريطة</a>
+  </div>
+
+  <a class="floating-whatsapp" href="https://wa.me/971555136875" target="_blank">💬 دعم واتساب</a>
+  <div class="coming-soon-label">🟠 توب مغربي - قريباً</div>
+
+  <div class="footer">
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      <a href="https://wa.me/971555136875" target="_blank">واتساب</a> |
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail">
+      <a href="mailto:alridalmalki@gmail.com">Gmail</a> |
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+      <a href="https://instagram.com/alridalmalki" target="_blank">Instagram</a>
+    </div>
+    <div class="brand">خياط الرداء الملكي | Khaiyat Al Ridal Al Malki</div>
+    <div>Since 2010</div>
+  </div>
 
   <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
+    }
+
     const cartList = document.getElementById("cart-list");
     const addButtons = document.querySelectorAll(".add-to-cart");
 
     addButtons.forEach((btn) => {
+      if (btn.disabled) return;
       btn.addEventListener("click", () => {
         const productCard = btn.closest(".product-card");
         const name = productCard.querySelector("h3").innerText;
@@ -254,7 +369,6 @@
           alert("برجاء اختيار المقاس");
           return;
         }
-
         const item = document.createElement("li");
         item.innerText = `${name} - مقاس ${size}`;
         const removeBtn = document.createElement("button");
@@ -281,6 +395,6 @@
       window.open(`https://wa.me/971555136875?text=${message}`, "_blank");
     }
   </script>
+
 </body>
 </html>
-
